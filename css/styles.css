@@ -84,3 +84,11 @@ h2{
 p {
     font-size: 24px;
 }
+
+.selected {
+    background-color: green;
+}
+
+.active {
+    background-color: #444;
+}
