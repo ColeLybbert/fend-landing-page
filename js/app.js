@@ -7,10 +7,21 @@ sections.forEach((section) => {
   let navItem = document.createElement('li');
   let itemLink = document.createElement('a');
   navItem.id = "nav" + section.id;
-  itemLink.href = "#" + section.id;
   itemLink.innerHTML = section.dataset.id;
   navItem.appendChild(itemLink);
   navBar.appendChild(navItem);
+  navItem.addEventListener('click', (event) => {
+    if (navItem.classList.contains('nav-active-class')) {
+      let warn = "Selected Section Already Active";
+      event.preventDefault();
+      console.error(warn);
+    } else {
+      scroll({
+        top: sectionTop + 100,
+        behavior: "smooth"
+      });
+    }
+  })
 
   //define section top and bottom
   let sectionTop = section.offsetTop -500;
